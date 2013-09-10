@@ -7,10 +7,10 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   ## Uncomment this lines to download a different version of the
   ## Vagrant box
-  #config.vm.box = "precise64"
-  #config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.box = "precise64"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
-  config.vm.box = "precise"
+  #config.vm.box = "precise"
 
    config.vm.provider :virtualbox do |vb|
      # Don't boot with headless mode
