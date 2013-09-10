@@ -47,7 +47,7 @@ case "$1" in
                         # Set the ulimits
                         ulimit $ULIMIT
                 fi
-                start-stop-daemon --start --quiet --pidfile /var/run/$NAME.pid \
+                start-stop-daemon --start --quiet --make-pidfile --pidfile /var/run/$NAME.pid \
                     --exec $DAEMON -- $DAEMON_OPTS || true
                 echo "$NAME."
                 ;;
@@ -65,7 +65,7 @@ case "$1" in
                     /var/run/$NAME.pid --exec $DAEMON || true
                 sleep 1
                 test_nginx_config
-                start-stop-daemon --start --quiet --pidfile \
+                start-stop-daemon --start --quiet --make-pidfile --pidfile \
                     /var/run/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS || true
                 echo "$NAME."
                 ;;
