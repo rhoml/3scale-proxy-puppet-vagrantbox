@@ -11,7 +11,7 @@ After gathering 3scale's configuration, you will download a **proxy_conf.zip** f
 ## USAGE
 
 ````
-  git clone git@github.com:rhoml/3scale-proxy-puppet-vagrantbox.git
+  git clone git@github.com:rhoml/3scale-proxy-puppet-vagrantbox.git 3scale-vagrant
   cd 3scale-vagrant/modules/nginx/files
   unzip /path/to/proxy_conf.zip
   vagrant up
