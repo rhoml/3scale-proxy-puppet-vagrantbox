@@ -1,4 +1,22 @@
-# = Class to install nginx
+# == Class: nginx::install
+#
+# This module ensures that Nginx is properly installed, with openresty and Lua.
+#
+# === Examples
+#
+#  class { 'nginx::install': }
+#
+#  or
+#
+#  include nginx::install
+#
+# === Authors
+#
+# Rhommel Lamas <roml@rhommell.com>
+#
+# === Copyright
+#
+# Copyright 2013 Rhommel Lamas.
 class nginx::install inherits nginx::params {
 
   File {
@@ -6,7 +24,7 @@ class nginx::install inherits nginx::params {
     group => 'nginx',
   }
 
-  # Ensure needed directories Exist
+  # Ensures needed directories exist
   if ! defined(File["${nginx::params::prefix}"]) {
     file {
       "${nginx::params::prefix}":
@@ -49,6 +67,7 @@ class nginx::install inherits nginx::params {
       subscribe => File['nginx-source-tgz']
   }
 
+  # Configure nginx with needed options --with-luajit is required.
   exec {
     "/bin/ls | ./configure --prefix=${nginx::params::openresty_path} --with-luajit --with-http_iconv_module -j2 && touch ${nginx::params::prefix}/ngx_openresty-${nginx::params::openresty_version}/.config":
       path    => [ '/bin/', '/sbin/' ,'/usr/bin/','/usr/sbin/' ],
@@ -65,7 +84,6 @@ class nginx::install inherits nginx::params {
       cwd     => "/usr/src/ngx_openresty-${nginx::params::openresty_version}",
       alias   => 'make-install',
       creates => '/opt/openresty/nginx/sbin/nginx',
-      require => Exec['configure-nginx'],
+      require => Exec['configure-nginx']
   }
-
 }

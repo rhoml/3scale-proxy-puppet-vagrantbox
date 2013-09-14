@@ -1,4 +1,23 @@
-# = Class to manage nginx on 3scale proxy
+# == Class: nginx
+#
+# This module ensures that Nginx is properly installed and configured to work
+# with 3scale's proxy.
+#
+# === Examples
+#
+#  class { nginx: }
+#
+#  or
+#
+#  include nginx
+#
+# === Authors
+#
+# Rhommel Lamas <roml@rhommell.com>
+#
+# === Copyright
+#
+# Copyright 2013 Rhommel Lamas.
 class nginx inherits nginx::params {
   include nginx::dependencies
   include nginx::install

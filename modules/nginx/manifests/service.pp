@@ -1,4 +1,26 @@
-# = Class to manage nginx as a service
+# == Class: nginx::service
+#
+# Resource to manage nginx service.
+#
+# === Examples
+#
+#  class { nginx::service }
+#
+#  or
+#
+#  include nginx::service
+#
+# === Provides
+#
+# Service['nginx']
+#
+# === Authors
+#
+# Rhommel Lamas <roml@rhommell.com>
+#
+# === Copyright
+#
+# Copyright 2013 Rhommel Lamas.
 class nginx::service inherits nginx::params {
   service {
     'nginx':
