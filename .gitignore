@@ -1,1 +1,2 @@
 .vagrant
+modules/nginx/files/proxy_configs/*
