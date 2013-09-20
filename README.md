@@ -21,7 +21,7 @@ After gathering 3scale's configuration, you will download a **proxy_conf.zip** f
 
 **Rhommel Lamas**
 
-1. Twitter: @rhoml
+1. Twitter: [@rhoml](http://www.twitter.com/rhoml)
 2. Email: roml [at] rhommell.com
 
 ## Contributing
